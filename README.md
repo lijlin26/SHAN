@@ -17,8 +17,9 @@ cd data
 ```
 We use datasets (ACM, IMDB, DBLP) from [Graph Transformer Networks](https://github.com/seongjunyun/Graph_Transformer_Networks/tree/master). Download and extract [data.zip](https://drive.google.com/file/d/1Nx74tgz_-BDlqaFO75eQG6IkndzI92j4/view) into data folder.
 ### Message Aggregation
-We adapted DGL's GATConv to implement message aggregation.
+We adapted DGL's [GATConv](https://docs.dgl.ai/generated/dgl.nn.pytorch.conv.GATConv.html) to implement message aggregation in SHAN.
 1. Add `model_name='decoder'` to the parameters of the `__init__` function in `GATConv`.
+![](fig/gatconv_init.png)
 2. In the `forward` function of `GATConv`, change 
 
     ```python
@@ -39,8 +40,11 @@ We adapted DGL's GATConv to implement message aggregation.
         )
         )
     ```
-
+![](fig/gatconv_forward.png)
 ### Run
+```bash
+cd src
+```
 - ACM
 ```bash
 python main.py --dataset acm --decoder linear
@@ -51,7 +55,7 @@ python main.py --dataset imdb --decoder gat
 ```
 - DBLP
 ```bash
-python main.py --dataset dblp --decoder gat --K 1 --decoder_residual 0
+python main.py --dataset dblp --decoder gat --K 1 --decoder_residual 0 --sample_times 2
 ```
 ## Reference
 If this work is useful for your research, please cite our work:
