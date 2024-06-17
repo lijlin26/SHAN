@@ -16,7 +16,29 @@ mkdir data
 cd data
 ```
 We use datasets (ACM, IMDB, DBLP) from [Graph Transformer Networks](https://github.com/seongjunyun/Graph_Transformer_Networks/tree/master). Download and extract [data.zip](https://drive.google.com/file/d/1Nx74tgz_-BDlqaFO75eQG6IkndzI92j4/view) into data folder.
+### Message Aggregation
+We adapted DGL's GATConv to implement message aggregation.
+1. Add `model_name='decoder'` to the parameters of the `__init__` function in `GATConv`.
+2. In the `forward` function of `GATConv`, change 
 
+    ```python
+    feat_src = feat_dst = self.fc(h_src).view(
+        *src_prefix_shape, self._num_heads, self._out_feats
+    )
+    ```
+
+    to
+
+    ```python
+    if self.model_name == 'decoder':
+        feat_src = feat_dst = self.fc(h_src).view(
+            *src_prefix_shape, self._num_heads, self._out_feats
+    else:
+        feat_src = feat_dst = h_src.view(
+            *src_prefix_shape, self._num_heads, self._out_feats
+        )
+        )
+    ```
 
 ### Run
 - ACM
