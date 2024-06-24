@@ -162,9 +162,6 @@ if __name__ == '__main__':
         logging.info('Test - Loss: {:.2f}, Macro_F1: {:.2f}, Micro_F1: {:.2f}'.format(test_loss, best_test_f1, best_test_micro_f1))
         logging.info('平均训练时间：{}S'.format(train_time))
         logging.info('\n')
-        model.eval()
-        with torch.no_grad():
-            predict = model(input)
         results['Macro_F1'].append(best_test_f1)
         results['Micro_F1'].append(best_test_micro_f1)
         results['Train_time'].append(train_time)
