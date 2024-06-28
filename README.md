@@ -57,7 +57,7 @@ python main.py --dataset imdb --decoder gat
 ```bash
 python main.py --dataset dblp --decoder gat --K 1 --decoder_residual 0 --sample_times 2
 ```
-## Reference
+## Citation
 If this work is useful for your research, please cite our work:
 ```
 @inproceedings{10.1145/3583780.3614979,
