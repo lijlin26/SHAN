@@ -1,5 +1,5 @@
 # Simplicial Hyperbolic Attention Network
-This is the source code of paper ["Multi-Order Relations Hyperbolic Fusion for Heterogeneous  Graphs"](https://dl.acm.org/doi/10.1145/3583780.3614979)
+This is the source code of CIKM-2023 paper: Multi-Order Relations Hyperbolic Fusion for Heterogeneous  Graphs
 ![](fig/SAN_framework.png)
 The source code is based on [HGCN](https://github.com/HazyResearch/hgcn)
 
